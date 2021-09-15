@@ -21,6 +21,12 @@ else:
     from config import Config
 
 
+@Client.on_message(filters.private & filters.command('start'))
+async def start_bot(bot, m: Message):
+    id = m.from_user.id
+    user_name = '@' + m.from_user.username if m.from_user.username else None
+    await add_user(id, user_name)
+
 # ------------------------------- View Subscribers --------------------------------- #
 @Client.on_message(filters.private & filters.command('subscribers'))
 async def subscribers_count(bot, m: Message):
