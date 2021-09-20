@@ -28,7 +28,7 @@ async def start_bot(bot, m: Message):
     await add_user(id, user_name)
 
 # ------------------------------- View Subscribers --------------------------------- #
-@Client.on_message(filters.private & filters.command('subscribers'))
+@Client.on_message(filters.private & filters.command('sub'))
 async def subscribers_count(bot, m: Message):
     id = m.from_user.id
     if id not in Config.AUTH_USERS:
