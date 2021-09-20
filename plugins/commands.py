@@ -37,9 +37,10 @@ async def subscribers_count(bot, m: Message):
     messages = await users_info(bot)
     active = messages[0]
     blocked = messages[1]
-    await m.delete()
     await msg.edit(Presets.USERS_LIST.format(active, blocked))
-
+    await m.delete()
+    await asyncio.sleep(8)
+    await msg.delete()
 
 # ------------------------ Send messages to subs ----------------------------- #
 @Client.on_message(filters.private & filters.command('send'))
